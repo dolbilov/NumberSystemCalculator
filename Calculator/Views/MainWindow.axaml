@@ -45,7 +45,7 @@
             Orientation="Vertical"
             Spacing="10">
             <TextBlock Text="Second number" />
-            <TextBox Text="{Binding Result}" />
+            <TextBlock Text="{Binding Result}" />
 
             <TextBlock Text="Numeric system of second number (2-35)" />
             <NumericUpDown
