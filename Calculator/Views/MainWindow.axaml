@@ -29,12 +29,12 @@
             <TextBlock Text="First number" />
             <TextBox Text="{Binding FirstNumber}" />
 
-            <TextBlock Text="Numeric system of first number (1-35)" />
+            <TextBlock Text="Numeric system of first number (2-35)" />
             <NumericUpDown
                 AllowSpin="True"
                 Increment="1"
                 Maximum="35"
-                Minimum="1"
+                Minimum="2"
                 NumberFormat="{Binding NumberFormatInfo}"
                 ShowButtonSpinner="False"
                 Value="{Binding FirstNumericSystem}" />
@@ -47,12 +47,12 @@
             <TextBlock Text="Second number" />
             <TextBox Text="{Binding SecondNumber}" />
 
-            <TextBlock Text="Numeric system of second number (1-35)" />
+            <TextBlock Text="Numeric system of second number (2-35)" />
             <NumericUpDown
                 AllowSpin="True"
                 Increment="1"
                 Maximum="35"
-                Minimum="1"
+                Minimum="2"
                 NumberFormat="{Binding NumberFormatInfo}"
                 ShowButtonSpinner="False"
                 Value="{Binding SecondNumericSystem}" />
