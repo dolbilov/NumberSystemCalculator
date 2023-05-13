@@ -1,40 +1,61 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:Calculator.ViewModels"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="200"
-        x:Class="Calculator.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="Calculator"
-        Padding="10"
-        CanResize="False">
+<Window
+    CanResize="False"
+    Height="200"
+    Icon="/Assets/avalonia-logo.ico"
+    Padding="10"
+    Title="Calculator"
+    Width="800"
+    WindowStartupLocation="CenterOwner"
+    d:DesignHeight="200"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="Calculator.Views.MainWindow"
+    x:DataType="vm:MainWindowViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Calculator.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
     <Grid ColumnDefinitions="*, 5, *" VerticalAlignment="Center">
-        <StackPanel Orientation="Vertical" Spacing="10" Grid.Column="0">
+        <StackPanel
+            Grid.Column="0"
+            Orientation="Vertical"
+            Spacing="10">
             <TextBlock Text="First number" />
             <TextBox Text="{Binding FirstNumber}" />
 
             <TextBlock Text="Numeric system of first number (1-35)" />
-            <NumericUpDown Value="{Binding FirstNumericSystem}" Minimum="1" Maximum="35" Increment="1"
-                           ShowButtonSpinner="False" AllowSpin="True" />
+            <NumericUpDown
+                AllowSpin="True"
+                Increment="1"
+                Maximum="35"
+                Minimum="1"
+                NumberFormat="{Binding NumberFormatInfo}"
+                ShowButtonSpinner="False"
+                Value="{Binding FirstNumericSystem}" />
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Spacing="10" Grid.Column="2">
+        <StackPanel
+            Grid.Column="2"
+            Orientation="Vertical"
+            Spacing="10">
             <TextBlock Text="Second number" />
             <TextBox Text="{Binding SecondNumber}" />
 
             <TextBlock Text="Numeric system of second number (1-35)" />
-            <NumericUpDown Value="{Binding SecondNumericSystem}" Minimum="1" Maximum="35" Increment="1"
-                           ShowButtonSpinner="False" AllowSpin="True" />
+            <NumericUpDown
+                AllowSpin="True"
+                Increment="1"
+                Maximum="35"
+                Minimum="1"
+                NumberFormat="{Binding NumberFormatInfo}"
+                ShowButtonSpinner="False"
+                Value="{Binding SecondNumericSystem}" />
         </StackPanel>
-
-
     </Grid>
-
 </Window>
