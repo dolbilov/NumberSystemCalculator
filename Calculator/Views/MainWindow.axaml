@@ -3,16 +3,38 @@
         xmlns:vm="using:Calculator.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="200"
         x:Class="Calculator.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Calculator">
+        Title="Calculator"
+        Padding="10"
+        CanResize="False">
 
     <Design.DataContext>
-        <vm:MainWindowViewModel/>
+        <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid ColumnDefinitions="*, 5, *" VerticalAlignment="Center">
+        <StackPanel Orientation="Vertical" Spacing="10" Grid.Column="0">
+            <TextBlock Text="First number" />
+            <TextBox Text="{Binding FirstNumber}" />
+
+            <TextBlock Text="Numeric system of first number (1-35)" />
+            <NumericUpDown Value="{Binding FirstNumericSystem}" Minimum="1" Maximum="35" Increment="1"
+                           ShowButtonSpinner="False" AllowSpin="True" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Spacing="10" Grid.Column="2">
+            <TextBlock Text="Second number" />
+            <TextBox Text="{Binding SecondNumber}" />
+
+            <TextBlock Text="Numeric system of second number (1-35)" />
+            <NumericUpDown Value="{Binding SecondNumericSystem}" Minimum="1" Maximum="35" Increment="1"
+                           ShowButtonSpinner="False" AllowSpin="True" />
+        </StackPanel>
+
+
+    </Grid>
 
 </Window>
