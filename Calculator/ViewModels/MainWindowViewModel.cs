@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using Calculator.Models;
 using ReactiveUI;
 
@@ -18,8 +19,10 @@ public class MainWindowViewModel : ValidatableViewModel
 
     public MainWindowViewModel()
     {
-        this.WhenAnyValue(vm => vm.Input, vm => vm.InputBase, vm => ResultBase);
+        this.WhenAnyValue(vm => vm.Input, vm => vm.InputBase, vm => vm.ResultBase)
+            .Subscribe(_ => TransferNumberToAnotherBase());
     }
+
 
     #region Properties
 
@@ -62,6 +65,15 @@ public class MainWindowViewModel : ValidatableViewModel
             AddError(nameof(Input), "This field is required");
         else if (!NumberValidator.ValidateNumber(Input, InputBase))
             AddError(nameof(Input), $"Number is not invalid for {InputBase} base");
+    }
+
+    private void TransferNumberToAnotherBase()
+    {
+        ValidateInput();
+
+        Result = HasErrors
+            ? null
+            : Models.Calculator.TransferNumberToAnotherBase(Input!, InputBase, ResultBase);
     }
 
     #endregion
