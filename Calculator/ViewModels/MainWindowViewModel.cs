@@ -7,10 +7,10 @@ public class MainWindowViewModel : ValidatableViewModel
 {
     #region Fields
 
-    private string? _firstNumber;
-    private int _firstNumericSystem = 10;
-    private string? _secondNumber;
-    private int _secondNumericSystem = 10;
+    private string? _input;
+    private int _inputNumericSystem = 10;
+    private string? _result;
+    private int _outputNumberNumericSystem = 10;
 
     #endregion
 
@@ -21,28 +21,28 @@ public class MainWindowViewModel : ValidatableViewModel
 
     #region Properties
 
-    public string? FirstNumber
+    public string? Input
     {
-        get => _firstNumber;
-        set => this.RaiseAndSetIfChanged(ref _firstNumber, value);
+        get => _input;
+        set => this.RaiseAndSetIfChanged(ref _input, value);
     }
 
-    public int FirstNumericSystem
+    public int InputNumericSystem
     {
-        get => _firstNumericSystem;
-        set => this.RaiseAndSetIfChanged(ref _firstNumericSystem, value);
+        get => _inputNumericSystem;
+        set => this.RaiseAndSetIfChanged(ref _inputNumericSystem, value);
     }
 
-    public string? SecondNumber
+    public string? Result
     {
-        get => _secondNumber;
-        set => this.RaiseAndSetIfChanged(ref _secondNumber, value);
+        get => _result;
+        set => this.RaiseAndSetIfChanged(ref _result, value);
     }
 
-    public int SecondNumericSystem
+    public int ResultNumericSystem
     {
-        get => _secondNumericSystem;
-        set => this.RaiseAndSetIfChanged(ref _secondNumericSystem, value);
+        get => _outputNumberNumericSystem;
+        set => this.RaiseAndSetIfChanged(ref _outputNumberNumericSystem, value);
     }
 
     public NumberFormatInfo NumberFormatInfo { get; } = new() { NumberDecimalDigits = 0 };

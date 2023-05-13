@@ -27,7 +27,7 @@
             Orientation="Vertical"
             Spacing="10">
             <TextBlock Text="First number" />
-            <TextBox Text="{Binding FirstNumber}" />
+            <TextBox Text="{Binding Input}" />
 
             <TextBlock Text="Numeric system of first number (2-35)" />
             <NumericUpDown
@@ -37,7 +37,7 @@
                 Minimum="2"
                 NumberFormat="{Binding NumberFormatInfo}"
                 ShowButtonSpinner="False"
-                Value="{Binding FirstNumericSystem}" />
+                Value="{Binding InputNumericSystem}" />
         </StackPanel>
 
         <StackPanel
@@ -45,7 +45,7 @@
             Orientation="Vertical"
             Spacing="10">
             <TextBlock Text="Second number" />
-            <TextBox Text="{Binding SecondNumber}" />
+            <TextBox Text="{Binding Result}" />
 
             <TextBlock Text="Numeric system of second number (2-35)" />
             <NumericUpDown
@@ -55,7 +55,7 @@
                 Minimum="2"
                 NumberFormat="{Binding NumberFormatInfo}"
                 ShowButtonSpinner="False"
-                Value="{Binding SecondNumericSystem}" />
+                Value="{Binding ResultNumericSystem}" />
         </StackPanel>
     </Grid>
 </Window>
