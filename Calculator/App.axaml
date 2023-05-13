@@ -8,5 +8,6 @@
     </Application.DataTemplates>
 
     <Application.Styles>
+        <StyleInclude Source="avares://SukiUI/Theme/Index.xaml"></StyleInclude>
     </Application.Styles>
 </Application>
