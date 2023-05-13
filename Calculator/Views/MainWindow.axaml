@@ -37,7 +37,7 @@
                 Minimum="2"
                 NumberFormat="{Binding NumberFormatInfo}"
                 ShowButtonSpinner="False"
-                Value="{Binding InputNumericSystem}" />
+                Value="{Binding InputBase}" />
         </StackPanel>
 
         <StackPanel
@@ -55,7 +55,7 @@
                 Minimum="2"
                 NumberFormat="{Binding NumberFormatInfo}"
                 ShowButtonSpinner="False"
-                Value="{Binding ResultNumericSystem}" />
+                Value="{Binding ResultBase}" />
         </StackPanel>
     </Grid>
 </Window>

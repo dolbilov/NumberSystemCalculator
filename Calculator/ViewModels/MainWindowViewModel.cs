@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using Calculator.Models;
 using ReactiveUI;
 
 namespace Calculator.ViewModels;
@@ -8,15 +9,16 @@ public class MainWindowViewModel : ValidatableViewModel
     #region Fields
 
     private string? _input;
-    private int _inputNumericSystem = 10;
+    private int _inputBase = 10;
     private string? _result;
-    private int _outputNumberNumericSystem = 10;
+    private int _resultBase = 10;
 
     #endregion
 
 
     public MainWindowViewModel()
     {
+        this.WhenAnyValue(vm => vm.Input, vm => vm.InputBase, vm => ResultBase);
     }
 
     #region Properties
@@ -27,10 +29,10 @@ public class MainWindowViewModel : ValidatableViewModel
         set => this.RaiseAndSetIfChanged(ref _input, value);
     }
 
-    public int InputNumericSystem
+    public int InputBase
     {
-        get => _inputNumericSystem;
-        set => this.RaiseAndSetIfChanged(ref _inputNumericSystem, value);
+        get => _inputBase;
+        set => this.RaiseAndSetIfChanged(ref _inputBase, value);
     }
 
     public string? Result
@@ -39,14 +41,28 @@ public class MainWindowViewModel : ValidatableViewModel
         set => this.RaiseAndSetIfChanged(ref _result, value);
     }
 
-    public int ResultNumericSystem
+    public int ResultBase
     {
-        get => _outputNumberNumericSystem;
-        set => this.RaiseAndSetIfChanged(ref _outputNumberNumericSystem, value);
+        get => _resultBase;
+        set => this.RaiseAndSetIfChanged(ref _resultBase, value);
     }
 
     public NumberFormatInfo NumberFormatInfo { get; } = new() { NumberDecimalDigits = 0 };
 
     #endregion
-    
+
+
+    #region Methods
+
+    private void ValidateInput()
+    {
+        ClearErrors(nameof(Input));
+
+        if (string.IsNullOrEmpty(Input))
+            AddError(nameof(Input), "This field is required");
+        else if (!NumberValidator.ValidateNumber(Input, InputBase))
+            AddError(nameof(Input), $"Number is not invalid for {InputBase} base");
+    }
+
+    #endregion
 }
