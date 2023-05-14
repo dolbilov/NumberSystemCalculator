@@ -26,10 +26,10 @@
             Grid.Column="0"
             Orientation="Vertical"
             Spacing="10">
-            <TextBlock Text="First number" />
+            <TextBlock Text="Input" />
             <TextBox Text="{Binding Input}" />
 
-            <TextBlock Text="Numeric system of first number (2-35)" />
+            <TextBlock Text="Base of input (2-35)" />
             <NumericUpDown
                 AllowSpin="True"
                 Increment="1"
@@ -44,10 +44,10 @@
             Grid.Column="2"
             Orientation="Vertical"
             Spacing="10">
-            <TextBlock Text="Second number" />
+            <TextBlock Text="Result" />
             <TextBox IsReadOnly="True" Text="{Binding Result}" />
 
-            <TextBlock Text="Numeric system of second number (2-35)" />
+            <TextBlock Text="Base of result (2-35)" />
             <NumericUpDown
                 AllowSpin="True"
                 Increment="1"
