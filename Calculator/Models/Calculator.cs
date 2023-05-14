@@ -10,6 +10,8 @@ public static class Calculator
 
     public static string TransferNumberToAnotherBase(string input, int inputBase, int resultBase)
     {
+        input = input.ToLower();
+        
         if (inputBase == resultBase)
             return input;
 
