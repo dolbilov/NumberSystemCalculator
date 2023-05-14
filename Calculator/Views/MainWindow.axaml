@@ -29,11 +29,11 @@
             <TextBlock Text="Input" />
             <TextBox Text="{Binding Input}" />
 
-            <TextBlock Text="Base of input (2-35)" />
+            <TextBlock Text="Base of input (2-36)" />
             <NumericUpDown
                 AllowSpin="True"
                 Increment="1"
-                Maximum="35"
+                Maximum="36"
                 Minimum="2"
                 NumberFormat="{Binding NumberFormatInfo}"
                 ShowButtonSpinner="False"
@@ -47,11 +47,11 @@
             <TextBlock Text="Result" />
             <TextBox IsReadOnly="True" Text="{Binding Result}" />
 
-            <TextBlock Text="Base of result (2-35)" />
+            <TextBlock Text="Base of result (2-36)" />
             <NumericUpDown
                 AllowSpin="True"
                 Increment="1"
-                Maximum="35"
+                Maximum="36"
                 Minimum="2"
                 NumberFormat="{Binding NumberFormatInfo}"
                 ShowButtonSpinner="False"
