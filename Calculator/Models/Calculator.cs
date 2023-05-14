@@ -48,7 +48,10 @@ public static class Calculator
 
         while (inputNumber > 0)
         {
-            sb.Append(inputNumber % resultBase);
+            var value = (int)inputNumber % resultBase;
+            var symbol = Alphabet[value];
+            
+            sb.Append(symbol);
             inputNumber /= resultBase;
         }
 
