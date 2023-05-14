@@ -7,6 +7,7 @@ namespace Calculator.Models;
 public static class Calculator
 {
     public const string Alphabet = "0123456789abcdefghijklmnopqrstuvwxyz";
+    private const string ErrorMessage = "Can't convert this number";
 
     public static string TransferNumberToAnotherBase(string input, int inputBase, int resultBase)
     {
@@ -22,7 +23,7 @@ public static class Calculator
         }
         catch (Exception e)
         {
-            return e.Message;
+            return ErrorMessage;
         }
     }
 
