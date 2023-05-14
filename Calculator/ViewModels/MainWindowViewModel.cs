@@ -72,7 +72,7 @@ public class MainWindowViewModel : ValidatableViewModel
         ValidateInput();
 
         Result = HasErrors
-            ? null
+            ? default
             : Models.Calculator.TransferNumberToAnotherBase(Input!, InputBase, ResultBase);
     }
 
