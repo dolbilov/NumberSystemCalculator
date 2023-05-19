@@ -1,18 +1,61 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:Calculator.ViewModels"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Calculator.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="Calculator">
+<Window
+    CanResize="False"
+    Height="200"
+    Icon="/Assets/avalonia-logo.ico"
+    Padding="10"
+    Title="Calculator"
+    Width="800"
+    WindowStartupLocation="CenterOwner"
+    d:DesignHeight="200"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="Calculator.Views.MainWindow"
+    x:DataType="vm:MainWindowViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Calculator.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Design.DataContext>
-        <vm:MainWindowViewModel/>
+        <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid ColumnDefinitions="*, 5, *" VerticalAlignment="Center">
+        <StackPanel
+            Grid.Column="0"
+            Orientation="Vertical"
+            Spacing="10">
+            <TextBlock Text="Input" />
+            <TextBox Text="{Binding Input}" />
 
+            <TextBlock Text="Base of input (2-36)" />
+            <NumericUpDown
+                AllowSpin="True"
+                Increment="1"
+                Maximum="36"
+                Minimum="2"
+                NumberFormat="{Binding NumberFormatInfo}"
+                ShowButtonSpinner="False"
+                Value="{Binding InputBase}" />
+        </StackPanel>
+
+        <StackPanel
+            Grid.Column="2"
+            Orientation="Vertical"
+            Spacing="10">
+            <TextBlock Text="Result" />
+            <TextBox IsReadOnly="True" Text="{Binding Result}" />
+
+            <TextBlock Text="Base of result (2-36)" />
+            <NumericUpDown
+                AllowSpin="True"
+                Increment="1"
+                Maximum="36"
+                Minimum="2"
+                NumberFormat="{Binding NumberFormatInfo}"
+                ShowButtonSpinner="False"
+                Value="{Binding ResultBase}" />
+        </StackPanel>
+    </Grid>
 </Window>
